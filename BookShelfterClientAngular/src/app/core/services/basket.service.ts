@@ -5,13 +5,16 @@ import { map, switchMap, tap } from 'rxjs/operators';
 import { Basket } from '../models/basket';
 import { BasketItem } from '../models/basketitem';
 import { BookService } from './book.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasketService {
 
-  private baseUrl = 'http://localhost:5287/api/Basket';
+  private baseUrl =environment.apiUrl+'/Basket';
+
+  // private baseUrl = 'http://localhost:5287/api/Basket';
   private basketSubject = new BehaviorSubject<Basket | null>(null);
   basket$ = this.basketSubject.asObservable();
 
@@ -27,7 +30,6 @@ export class BasketService {
         .pipe(
             map(response => {
                 if (!response || !response.basketItems) {
-                    // Eğer sepet bulunamazsa, yeni bir sepet oluştur
                     return this.createBasket(userId);
                 }
                 return this.mapBasketResponse(response, userId);

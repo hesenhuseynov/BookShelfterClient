@@ -6,13 +6,15 @@ import { BookDetailDto } from '../models/bookdetail';
 import { response } from 'express';
 import { addBookDto } from '../models/addbookDto';
 import { editBookDto } from '../models/editbookDto';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-
-     private apiUrl ='http://localhost:5287/api/books';
+  
+  private apiUrl = environment.apiUrl + '/books';
+    //  private apiUrl ='http://localhost:5287/api/books';
 
   constructor(private http:HttpClient) {
    }
@@ -22,7 +24,6 @@ export class BookService {
       .set('PageNumber', pageNumber.toString())
       .set('PageSize', pageSize.toString());
   
-    // Burada hem totalProductCount hem de books verilerini döndürüyoruz
     return this.http.get<{ totalProductCount: number, books: Book[] }>(this.apiUrl, { params });
   }
   

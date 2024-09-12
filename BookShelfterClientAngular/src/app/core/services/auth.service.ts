@@ -8,6 +8,7 @@ import { RegisterModel } from '../models/registermodel';
 import { BasketService } from './basket.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
  import { jwtDecode } from "jwt-decode";
+import { environment } from '../../../environments/environment';
 
 
 
@@ -20,7 +21,8 @@ export class AuthService {
    private isLoggedInSubject = new BehaviorSubject<boolean>(false);
    isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
 
-  private apiUrl = 'http://localhost:5287/api/Auth';
+   private baseUrl = environment.apiUrl+'/Auth';
+  // private apiUrl = 'http://localhost:5287/api/Auth';
 
   constructor(
     private http: HttpClient,
@@ -38,7 +40,7 @@ export class AuthService {
   }
 
   login(userName: string, password: string): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, { userName, password }).pipe(
+    return this.http.post<LoginResponse>(`${this.baseUrl}/login`, { userName, password }).pipe(
       tap(response => {
         if (isPlatformBrowser(this.platformId)) {
           if (response.token.accessToken) {
@@ -83,11 +85,9 @@ export class AuthService {
   getUserRole(): string | null {
     const token = this.getToken(); 
     if (token) {
-      // const payload = JSON.parse(atob(token.split('.')[1])); 
       const payload:any=jwtDecode(token)
       return payload.role || null;
     }
-    // debugger;
     return null;
   }
 
@@ -116,11 +116,11 @@ export class AuthService {
     }
   }
   register(registerData: RegisterModel): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, registerData);
+    return this.http.post(`${this.baseUrl}/register`, registerData);
   }
 
   confirmEmail(token: string, email: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/confirmemail`, { token, email });
+    return this.http.post(`${this.baseUrl}/confirmemail`, { token, email });
   }
 
   saveToken(token: string): void {
