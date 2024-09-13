@@ -1,4 +1,3 @@
-/* Genel font ayarları */
 body, .navbar, .navbar-nav, .navbar-brand, .nav-item, .nav-link {
   font-family: "Montserrat", "Varela", "Poppins", sans-serif;
   font-optical-sizing: auto;
@@ -7,7 +6,6 @@ body, .navbar, .navbar-nav, .navbar-brand, .nav-item, .nav-link {
   font-weight: 490;
 }
 
-/* Sekme (Tab) Stilleri */
 .nav-tabs .nav-link {
   cursor: pointer;
   margin-bottom: 16px;
@@ -22,15 +20,48 @@ body, .navbar, .navbar-nav, .navbar-brand, .nav-item, .nav-link {
   font-family: "Montserrat", sans-serif;
 }
 
-/* Navbar genel stiller */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #f8f9fa; /* Daha yumuşak bir arka plan rengi */
+  background-color: #f8f9fa; 
+  flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: flex-start;
+    padding: 10px;
+  }
+
+  .navbar-collapse {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links .nav-item {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar-links .nav-item a {
+    padding: 10px 0;
+  }
+
+  .search-bar input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .shopping-cart:hover .dropdown-menu {
+    display: none !important;
+  }
+}
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -87,29 +118,28 @@ body, .navbar, .navbar-nav, .navbar-brand, .nav-item, .nav-link {
   /* text-transform: uppercase; */
   padding: 10px 15px;
   
-  position: relative; /* Underline Stroke için gerekli */
+  position: relative;
 }
 
 .navbar-links .nav-item a:hover {
   color: #738a67;
 }
 
-/* Underline Stroke Efekti */
 .navbar-links .nav-item a:after {
   content: '';
   position: absolute;
   left: 50%;
   bottom: 0;
-  height: 1.4px; /* Çizgi kalınlığı */
-  background-color: #419fa5; /* Hover rengi ile uyumlu */
-  transition: width 0.2s ease-in-out, left 0.2s ease-in-out; /* Animasyon süresi ve geçişleri */
+  height: 1.4px; 
+  background-color: #419fa5; 
+  transition: width 0.2s ease-in-out, left 0.2s ease-in-out; 
   width: 0;
-  max-width: 80%; /* Çizginin en fazla uzunluğu */
+  max-width: 80%; 
 }
 
 .navbar-links .nav-item a:hover:after {
-  width: 80%; /* Çizginin hover durumunda uzunluğu */
-  left: 10%; /* Ortadan iki tarafa yayılma */
+  width: 80%; 
+  left: 10%; 
 }
 .navbar-collapse {
   display: flex;
@@ -132,7 +162,7 @@ body, .navbar, .navbar-nav, .navbar-brand, .nav-item, .nav-link {
 
 
 .navbar-links .nav-item a:hover {
-  color: #228cb6; /* Hover yapıldığında metin rengi */
+  color: #228cb6; 
 }
 
 .navbar-toggler {
@@ -142,4 +172,11 @@ body, .navbar, .navbar-nav, .navbar-brand, .nav-item, .nav-link {
 #admin-panel {
   background-color: rgba(19, 99, 185, 0.404);
   color: black;
+}
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
 }

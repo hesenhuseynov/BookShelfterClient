@@ -5,7 +5,7 @@
         <img *ngIf="book.imageUrls && book.imageUrls.length > 0" [src]="book.imageUrls[0]" class="card-img-top" alt="{{ book.bookName }}">
         <div class="card-body text-center">
           <h5 class="card-title">
-            <a [routerLink]="['/books', book.bookId]" class="text-dark">{{ book.bookName }}</a>
+            <a href="/books/{{ book.bookId }}" class="text-dark">{{ book.bookName }}</a>
           </h5>
           <h6 class="text-muted">{{ book.authorName }}</h6>
           <p class="card-text">₼{{ book.price }}</p>

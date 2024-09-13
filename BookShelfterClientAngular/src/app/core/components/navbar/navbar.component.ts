@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -19,8 +19,10 @@ export class NavbarComponent implements OnInit {
   userName :string| null=null;
   isAdmin: boolean = false;
   isUser: boolean = false;
+  isDropdownOpen = false;
 
   constructor(public  authService:AuthService,private router:Router,private toastr:ToastrService){}
+
   ngOnInit(): void {
     this.authService.currentUser$.subscribe(userName=>{
       this.userName=userName;
@@ -29,7 +31,6 @@ export class NavbarComponent implements OnInit {
       this.isUser=role==='User'
       
     })
-    // debugger;
   }
 
  
@@ -42,6 +43,9 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
 
   }
-  
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
 
 }

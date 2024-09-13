@@ -55,7 +55,7 @@ private createBasket(userId: string): Basket {
   // addItemToBasket(productId: number, quantity: number, userId: string): Observable<any> {
   //   return this.http.post(`${this.baseUrl}/add-item`, { productId, quantity, userId }).pipe(
   //     tap(() => {
-  //       this.loadBasket(userId); // Ürün eklendikten hemen sonra sepeti güncelleyerek doğru veriyi kullanıcıya yansıtıyoruz
+  //       this.loadBasket(userId); 
   //     })
   //   );
   // }
@@ -93,7 +93,7 @@ private createBasket(userId: string): Basket {
             return this.http.post(`${this.baseUrl}/add-item`, { bookId, quantity, userId });
         }),
         tap(() => {
-            this.loadBasket(userId); // Sepeti tekrar yükle
+            this.loadBasket(userId); 
         })
     );
 }
@@ -101,7 +101,7 @@ private createBasket(userId: string): Basket {
   
   removeItemFromBasket(bookId: number, userId: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/remove-item`, {
-      body: { bookId, userId } // DELETE isteği için `body` kullanılıyor
+      body: { bookId, userId } 
     }).pipe(
       tap(() => this.loadBasket(userId))
     );

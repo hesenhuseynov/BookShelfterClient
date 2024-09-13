@@ -73,10 +73,8 @@ export class AuthService {
     if (isPlatformBrowser(this.platformId)) {
       const token = localStorage.getItem('accessToken');
       if (token) {
-        // const payload = JSON.parse(atob(token.split('.')[1])); 
         const payload: any =jwtDecode(token);
         return payload.unique_name || null;
-        // return payload.unique_name; 
       }
     }
     return null;

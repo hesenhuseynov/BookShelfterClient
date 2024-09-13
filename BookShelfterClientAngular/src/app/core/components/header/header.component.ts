@@ -63,7 +63,6 @@ import { FormsModule } from '@angular/forms';
 
     searchBooks() {
       if (this.searchKeyword.trim() !== '') {
-        // Kullanıcı bir şeyler yazdıysa, arama sayfasına yönlendirilir
         this.router.navigate(['/books/search'], { queryParams: { keyword: this.searchKeyword } });
       }
     }

@@ -3,42 +3,35 @@
   <div class="support-info">
     <i class="fas fa-headset"></i>
     <span>Texniki dəstək 24/7</span>
-    <a href="tel:+012025550181" class="support-number">+994-55-285-92-63</a>
+    <a href="tel:+994-55-285-92-63" class="support-number">+994-55-285-92-63</a>
   </div>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto navbar-links">
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="#">ANA SƏHİFƏ</a>
-      </li> -->
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/books']" >KİTABLAR</a>
+        <a class="nav-link" href="/books">KİTABLAR</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">BLOQ</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">ƏLAQƏ </a>
+        <a class="nav-link" href="#">ƏLAQƏ</a>
       </li>
       <li class="nav-item" *ngIf="isUser">
         <a class="nav-link" routerLink="/user-panel/dashboard">User Panel</a>
       </li>
 
       <li class="nav-item" *ngIf="isAdmin">
-        <a  id="admin-panel" class="nav-link" style="cursor: pointer"  routerLink="/admin-panel/dashboard">Admin Panel</a>
-        <!-- <a class="nav-link" style="cursor: pointer" href="/admin-panel/dashboard">Admin Panel</a>  -->
-
+        <a id="admin-panel" class="nav-link" style="cursor: pointer" routerLink="/admin-panel/dashboard">Admin Panel</a>
       </li>
       <li class="nav-item" *ngIf="userName">
-        <a class="nav-link" href="#">Salam, {{ userName }}</a>  
+        <a class="nav-link" href="#">Salam, {{ userName }}</a>
       </li>
       <li class="nav-item" *ngIf="userName">
-        <button  class="btn btn-link nav-link" (click)="logout()">Çıxış  </button>
+        <button class="btn btn-link nav-link" (click)="logout()">Çıxış</button>
       </li>
     </ul>
   </div>
-
-
 </nav>

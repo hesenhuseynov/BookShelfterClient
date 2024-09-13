@@ -21,7 +21,7 @@
             <img *ngIf="product.imageUrls.length > 0" [src]="product.imageUrls[0]" class="card-img-top" alt="Product Image">
             <div class="card-body text-center">
               <h5 class="card-title">
-                <a [routerLink]="['/books', product.bookId]" class="text-dark">{{ product.bookName }}</a>
+                <a href="/books/{{ product.bookId }}" class="text-dark">{{ product.bookName }}</a>
               </h5>
               <h6 class="text-muted">{{ product.authorName }}</h6>
               <p class="card-text">{{ product.price }}₼</p>
@@ -44,7 +44,7 @@
             <img *ngIf="product.imageUrls.length > 0" [src]="product.imageUrls[0]" class="card-img-top" alt="Product Image">
             <div class="card-body text-center">
               <h5 class="card-title">
-                <a [routerLink]="['/books', product.bookId]" class="text-dark">{{ product.bookName }}</a>
+                <a href="/books/{{ product.bookId }}" class="text-dark">{{ product.bookName }}</a>
               </h5>
               <h6 class="text-muted">{{ product.authorName }}</h6>
               <p class="card-text">{{ product.price }}₼</p>
@@ -70,7 +70,7 @@
             <img *ngIf="product.imageUrls.length > 0" [src]="product.imageUrls[0]" class="card-img-top" alt="Product Image">
             <div class="card-body text-center">
               <h5 class="card-title">
-                <a [routerLink]="['/books', product.bookId]" class="text-dark">{{ product.bookName }}</a>
+                <a href="/books/{{ product.bookId }}" class="text-dark">{{ product.bookName }}</a>
               </h5>
               <h6 class="text-muted">{{ product.authorName }}</h6>
               <p class="card-text">{{ product.price }}₼</p>
