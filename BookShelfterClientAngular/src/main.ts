@@ -10,7 +10,7 @@ import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 
 const appInsights = new ApplicationInsights({
   config: {
-    instrumentationKey: '3b05012b-6086-4850-8239-73e0f9ecb33c' // Azure'dan aldığın Instrumentation Key
+    instrumentationKey: '3b05012b-6086-4850-8239-73e0f9ecb33c' 
   }
 });
 
