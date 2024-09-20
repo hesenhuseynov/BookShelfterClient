@@ -56,7 +56,7 @@ export class BookService {
   // }
   getBookById(id: string): Observable<Book> {
     return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
-      map(response => response.book) // Gelen JSON'daki "book" objesini mapleyin
+      map(response => response.book)
     );
 
   }

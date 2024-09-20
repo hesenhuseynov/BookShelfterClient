@@ -25,6 +25,6 @@ export class MainLayoutComponent {
 
   }
   isHomePage(): boolean {
-    return this.router.url === '/';  // Sadece ana sayfada görünmesi için
+    return this.router.url === '/';  
   }
 }
